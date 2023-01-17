@@ -7,6 +7,7 @@ export function MousesIndex(props) {
           <h2><strong>Brand: </strong>{mouse.brand}</h2>
           <h2><strong>Model: </strong>{mouse.model}</h2>
           <p><strong>DPI: </strong>{mouse.dpi}</p>
+          <button onClick={() => props.onShowMouse(mouse)}>More details</button>
         </div>
       ))}
     </div>

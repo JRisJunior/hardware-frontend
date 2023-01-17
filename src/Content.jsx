@@ -3,6 +3,7 @@ import axios from "axios";
 import { MousesIndex } from "./MousesIndex";
 import {MousesNew } from "./MousesNew";
 import { Modal } from "./Modal";
+import { MousesShow } from "./MousesShow";
 
 
 export function Content() {
@@ -27,6 +28,12 @@ export function Content() {
     });
   };
 
+  const handleShowMouse = (mouse) => {
+    console.log("handleShowMouse", mouse);
+    setIsMousesShowVisible(true);
+    setCurrentMouse(mouse);
+  };
+
   const handleClose = () => {
     console.log("handleClose");
     setIsMousesShowVisible(false);
@@ -37,9 +44,9 @@ export function Content() {
   return (
     <div>
       <MousesNew onCreateMouse={handleCreateMouse}/>
-      <MousesIndex mouses={mouses} />
+      <MousesIndex mouses={mouses} onShowMouse={handleShowMouse} />
       <Modal show={isMousesShowVisible} onClose={handleClose}>
-        <h1>Test</h1>
+        <MousesShow mouse={currentMouse} />
       </Modal>
     </div>
   );
