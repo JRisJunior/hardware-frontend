@@ -2,11 +2,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { MousesIndex } from "./MousesIndex";
 import {MousesNew } from "./MousesNew";
+import { Modal } from "./Modal";
 
 
 export function Content() {
 
   const [mouses, setMouses] = useState([]);
+  const [isMousesShowVisible, setIsMousesShowVisible] = useState(false);
+  const [currentMouse, setCurrentMouse] = useState({});
 
   const handleIndexMouses = () => {
     console.log("handleIndexMouses");
@@ -24,12 +27,20 @@ export function Content() {
     });
   };
 
+  const handleClose = () => {
+    console.log("handleClose");
+    setIsMousesShowVisible(false);
+  };
+
   useEffect(handleIndexMouses, []);
 
   return (
     <div>
       <MousesNew onCreateMouse={handleCreateMouse}/>
       <MousesIndex mouses={mouses} />
+      <Modal show={isMousesShowVisible} onClose={handleClose}>
+        <h1>Test</h1>
+      </Modal>
     </div>
   );
 }
