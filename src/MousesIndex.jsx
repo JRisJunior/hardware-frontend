@@ -4,9 +4,9 @@ export function MousesIndex(props) {
       <h1>All mice</h1>
       {props.mouses.map((mouse) => (
         <div key={mouse.id}>
-          <h2>{mouse.brand}</h2>
-          <h2>{mouse.model}</h2>
-          <p>{mouse.dpi}</p>
+          <h2><strong>Brand: </strong>{mouse.brand}</h2>
+          <h2><strong>Model: </strong>{mouse.model}</h2>
+          <p><strong>DPI: </strong>{mouse.dpi}</p>
         </div>
       ))}
     </div>
