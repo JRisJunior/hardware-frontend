@@ -11,7 +11,7 @@ export function MousesNew(props) {
       <h1>New Mouse</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          Brand: <input name="name" type="text" />
+          Brand: <input name="brand" type="text" />
         </div>
         <div>
           Model: <input name="model" type="text" />
