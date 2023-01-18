@@ -4,6 +4,8 @@ import { MousesIndex } from "./MousesIndex";
 import {MousesNew } from "./MousesNew";
 import { Modal } from "./Modal";
 import { MousesShow } from "./MousesShow";
+import { Routes, Route } from "react-router-dom";
+import { About } from "./About";
 
 
 export function Content() {
@@ -43,6 +45,9 @@ export function Content() {
 
   return (
     <div>
+      <Routes>
+        <Route path="/about" element={<About />} />
+      </Routes>
       <MousesNew onCreateMouse={handleCreateMouse}/>
       <MousesIndex mouses={mouses} onShowMouse={handleShowMouse} />
       <Modal show={isMousesShowVisible} onClose={handleClose}>
